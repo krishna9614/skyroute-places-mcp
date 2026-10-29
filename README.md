@@ -23,7 +23,8 @@ cp .env.example .env   # adjust MCP_HOST / MCP_PORT if needed
 python server.py
 ```
 
-The server listens on `http://127.0.0.1:8002/mcp` (streamable HTTP) by default.
+The server listens on `http://127.0.0.1:8002/places-mcp` (streamable HTTP) by
+default. `MCP_HOST` / `MCP_PORT` / `MCP_PATH` are configurable via `.env`.
 
 ## Tools
 

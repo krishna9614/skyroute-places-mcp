@@ -17,6 +17,7 @@ logger = logging.getLogger("skyroute.places_mcp")
 
 HOST = os.getenv("MCP_HOST", "127.0.0.1")
 PORT = int(os.getenv("MCP_PORT", "8002"))
+PATH = os.getenv("MCP_PATH", "/places-mcp")
 
 mcp_server = MCPServer(
     name="skyroute-places-mcp",
@@ -66,14 +67,16 @@ def main() -> None:
         format="%(asctime)s %(levelname)s %(name)s: %(message)s",
     )
     logger.info(
-        "starting skyroute-places-mcp on http://%s:%s/mcp (transport=streamable-http)",
+        "starting skyroute-places-mcp on http://%s:%s%s (transport=streamable-http)",
         HOST,
         PORT,
+        PATH,
     )
     mcp_server.run(
         transport="streamable-http",
         host=HOST,
         port=PORT,
+        streamable_http_path=PATH,
     )
 
 
